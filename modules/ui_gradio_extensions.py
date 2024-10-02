@@ -25,6 +25,10 @@ def javascript_html():
     if shared.cmd_opts.theme:
         head += f'<script type="text/javascript">set_theme(\"{shared.cmd_opts.theme}\");</script>\n'
 
+    # -GA-权限控制JS
+    for script in scripts.list_scripts("ga/js", ".js"):
+        head += f'<script type="text/javascript" src="{webpath(script.path)}"></script>\n'
+
     return head
 
 

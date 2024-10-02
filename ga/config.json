@@ -1,0 +1,4 @@
+{
+  "role": "user",
+  "_roles": ["admin","vip","user"]
+}

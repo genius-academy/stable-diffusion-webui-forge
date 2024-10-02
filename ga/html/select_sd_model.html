@@ -1,0 +1,27 @@
+<style>
+.select_sd_model select {
+    cursor: pointer;
+    background-color: #1f2937; /* Darker background for select */
+    color: #fff; /* Light text */
+    border: 1px solid #1f2937; /* Slightly lighter border */
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    min-width: 300px;
+}
+
+.select_sd_model select:focus {
+    border-color: #888; /* Change border color on focus */
+}
+
+.select_sd_model select option {
+    background-color: #333; /* Dark background for options */
+    color: #fff; /* Light text */
+}
+</style>
+<div class="select_sd_model">
+        <label for="select_sd_model">Checkpoint Models</label>
+        <br/>
+        <select id="select_sd_model" name="sd_model">
+        </select>
+</div>

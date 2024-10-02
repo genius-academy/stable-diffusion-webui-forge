@@ -62,7 +62,7 @@ def make_checkpoint_manager_ui():
         if len(sd_models.checkpoints_list) > 0:
             shared.opts.set('sd_model_checkpoint', next(iter(sd_models.checkpoints_list.values())).name)
 
-    ui_forge_preset = gr.Radio(label="UI", value=lambda: shared.opts.forge_preset, choices=['sd', 'xl', 'flux', 'all'])
+    ui_forge_preset = gr.Radio(label="UI", value=lambda: shared.opts.forge_preset, choices=['sd', 'xl', 'flux', 'all'], visible=False)
 
     ckpt_list, vae_list = refresh_models()
 
@@ -70,7 +70,8 @@ def make_checkpoint_manager_ui():
         value=lambda: shared.opts.sd_model_checkpoint,
         label="Checkpoint",
         elem_classes=['model_selection'],
-        choices=ckpt_list
+        choices=ckpt_list,
+        visible=False
     )
 
     ui_vae = gr.Dropdown(
@@ -78,14 +79,15 @@ def make_checkpoint_manager_ui():
         multiselect=True,
         label="VAE / Text Encoder",
         render=False,
-        choices=vae_list
+        choices=vae_list,
+        visible=False
     )
 
     def gr_refresh_models():
         a, b = refresh_models()
         return gr.update(choices=a), gr.update(choices=b)
 
-    refresh_button = ui_common.ToolButton(value=ui_common.refresh_symbol, elem_id=f"forge_refresh_checkpoint", tooltip="Refresh")
+    refresh_button = ui_common.ToolButton(value=ui_common.refresh_symbol, elem_id=f"forge_refresh_checkpoint", tooltip="Refresh", visible=False)
     refresh_button.click(
         fn=gr_refresh_models,
         inputs=[],

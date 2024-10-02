@@ -871,8 +871,8 @@ def create_ui():
 
         extra_tabs.__exit__()
 
-    with gr.Blocks(analytics_enabled=False, head=canvas_head) as space_interface:
-        forge_space.main_entry()
+    # with gr.Blocks(analytics_enabled=False, head=canvas_head) as space_interface:
+    #     forge_space.main_entry()
 
     scripts.scripts_current = None
 
@@ -912,7 +912,7 @@ def create_ui():
     interfaces = [
         (txt2img_interface, "Txt2img", "txt2img"),
         (img2img_interface, "Img2img", "img2img"),
-        (space_interface, "Spaces", "space"),
+        # (space_interface, "Spaces", "space"),
         (extras_interface, "Extras", "extras"),
         (pnginfo_interface, "PNG Info", "pnginfo"),
         (modelmerger_ui.blocks, "Checkpoint Merger", "modelmerger"),
